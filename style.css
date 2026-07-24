@@ -2,7 +2,19 @@
 Google Font
 ==========================*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root{
+    --gold:#f2b705;
+    --gold-soft:#ffd873;
+    --orange:#ff7a29;
+    --bg:#07070b;
+    --bg-alt:#0e0e15;
+    --card:rgba(255,255,255,.04);
+    --border:rgba(242,183,5,.18);
+    --text-muted:#bdbdbd;
+    --whatsapp:#25d366;
+}
 
 *{
     margin:0;
@@ -13,9 +25,13 @@ Google Font
 }
 
 body{
-    background:#050816;
+    background:var(--bg);
     color:#fff;
     overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+    font-family:'Playfair Display',serif;
 }
 
 /* Scrollbar */
@@ -29,8 +45,28 @@ body{
 }
 
 ::-webkit-scrollbar-thumb{
-    background:#00e5ff;
+    background:var(--gold);
     border-radius:20px;
+}
+
+/* Section heading helper */
+
+section h2{
+    text-align:center;
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+section h2 span{
+    color:var(--gold);
+}
+
+.section-sub{
+    text-align:center;
+    color:var(--text-muted);
+    max-width:600px;
+    margin:0 auto 50px;
+    font-size:17px;
 }
 
 /*==========================
@@ -52,40 +88,63 @@ header{
     backdrop-filter:blur(18px);
     background:rgba(255,255,255,.05);
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid var(--border);
 
     z-index:1000;
+    transition:.4s;
 
 }
 
 .logo{
 
-    font-size:50px;
-    font-weight:1000;
-    color:#00e5ff;
+    font-size:32px;
+    font-weight:800;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:10px;
 
 }
 
-.logo i{
-
-    margin-right:8px;
-
+nav{
+    display:flex;
+    align-items:center;
 }
 
 nav a{
 
     text-decoration:none;
     color:#fff;
-    margin-left:30px;
-    font-size:17px;
+    margin-left:28px;
+    font-size:16px;
     transition:.4s;
+    position:relative;
 
 }
 
-nav a:hover{
+nav a:hover,
+nav a.active{
 
-    color:#00e5ff;
+    color:var(--gold);
 
+}
+
+nav a.nav-cta{
+    border:1.5px solid var(--gold);
+    padding:8px 20px;
+    border-radius:50px;
+}
+
+nav a.nav-cta:hover{
+    background:var(--gold);
+    color:#000;
+}
+
+.nav-toggle{
+    display:none;
+    font-size:26px;
+    color:var(--gold);
+    cursor:pointer;
 }
 
 /*==========================
@@ -99,7 +158,8 @@ Hero
     justify-content:space-between;
     align-items:center;
 
-    padding:120px 8%;
+    padding:140px 8% 80px;
+    gap:40px;
 
 }
 
@@ -111,33 +171,40 @@ Hero
 
 .hero-text h3{
 
-    color:#00e5ff;
-    font-size:25px;
+    color:var(--gold);
+    font-size:22px;
+    font-family:'Poppins',sans-serif;
 
 }
 
 .hero-text h1{
 
-    font-size:75px;
-    margin:15px 0;
-
-    line-height:1.1;
+    font-size:64px;
+    margin:12px 0;
+    line-height:1.15;
 
 }
 
-.hero-text h2{
+.hero-text h1 span{
+    color:var(--gold);
+}
 
-    color:#ccc;
-    font-size:32px;
+.tagline{
+
+    color:var(--gold-soft);
+    font-size:26px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
 
 }
 
 .hero-text p{
 
-    margin-top:25px;
-    color:#bcbcbc;
-    line-height:32px;
-    font-size:18px;
+    margin-top:22px;
+    color:var(--text-muted);
+    line-height:30px;
+    font-size:17px;
+    max-width:560px;
 
 }
 
@@ -145,47 +212,63 @@ Hero
 
 .buttons{
 
-    margin-top:40px;
+    margin-top:35px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
 
 }
 
 .btn{
 
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
 
-    padding:14px 35px;
+    padding:14px 32px;
 
-    background:#00e5ff;
+    background:linear-gradient(135deg,var(--gold),var(--orange));
 
     color:#000;
 
     text-decoration:none;
 
-    font-weight:600;
+    font-weight:700;
 
     border-radius:50px;
 
     transition:.4s;
-
-    margin-right:15px;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
 
 }
 
 .btn:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 
-    box-shadow:0 0 25px #00e5ff;
+    box-shadow:0 0 25px rgba(242,183,5,.5);
 
+}
+
+.btn-whatsapp{
+    background:var(--whatsapp);
+    color:#fff;
+}
+
+.btn-whatsapp:hover{
+    box-shadow:0 0 25px rgba(37,211,102,.5);
 }
 
 .btn2{
 
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
 
-    padding:14px 35px;
+    padding:14px 32px;
 
-    border:2px solid #00e5ff;
+    border:2px solid var(--gold);
 
     color:#fff;
 
@@ -194,12 +277,13 @@ Hero
     border-radius:50px;
 
     transition:.4s;
+    font-weight:600;
 
 }
 
 .btn2:hover{
 
-    background:#00e5ff;
+    background:var(--gold);
 
     color:#000;
 
@@ -209,14 +293,16 @@ Hero
 
 .social{
 
-    margin-top:45px;
+    margin-top:40px;
+    display:flex;
+    gap:12px;
 
 }
 
 .social a{
 
-    width:50px;
-    height:50px;
+    width:48px;
+    height:48px;
 
     display:inline-flex;
 
@@ -225,13 +311,11 @@ Hero
 
     border-radius:50%;
 
-    border:2px solid #00e5ff;
+    border:2px solid var(--gold);
 
-    color:#00e5ff;
+    color:var(--gold);
 
     text-decoration:none;
-
-    margin-right:12px;
 
     transition:.4s;
 
@@ -239,11 +323,11 @@ Hero
 
 .social a:hover{
 
-    background:#00e5ff;
+    background:var(--gold);
 
     color:#000;
 
-    transform:translateY(-10px);
+    transform:translateY(-8px);
 
 }
 
@@ -259,11 +343,13 @@ Hero
 
 .hero-image img{
 
-    width:420px;
+    width:400px;
 
     border-radius:50%;
 
-    box-shadow:0 0 50px rgba(0,229,255,.5);
+    border:4px solid var(--gold);
+
+    box-shadow:0 0 50px rgba(242,183,5,.4);
 
     animation:float 4s ease-in-out infinite;
 
@@ -271,19 +357,12 @@ Hero
 
 @keyframes float{
 
-0%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-18px);
-}
-
-100%{
-transform:translateY(0);
-}
+0%{transform:translateY(0);}
+50%{transform:translateY(-18px);}
+100%{transform:translateY(0);}
 
 }
+
 /*==========================
 ABOUT
 ==========================*/
@@ -291,18 +370,6 @@ ABOUT
 .about{
 
     padding:100px 8%;
-
-}
-
-.about h2{
-
-    text-align:center;
-
-    font-size:45px;
-
-    color:#00e5ff;
-
-    margin-bottom:60px;
 
 }
 
@@ -320,18 +387,37 @@ ABOUT
 
 .about-image{
 
-    width:40%;
+    width:38%;
 
 }
 
-.about-image img{
+.photo-placeholder{
 
     width:100%;
+    aspect-ratio:1/1;
 
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+
+    border:2px dashed var(--border);
     border-radius:25px;
 
-    box-shadow:0 0 35px rgba(0,229,255,.35);
+    background:var(--card);
 
+    color:var(--gold);
+
+}
+
+.photo-placeholder i{
+    font-size:60px;
+}
+
+.photo-placeholder p{
+    color:var(--text-muted);
+    font-size:15px;
 }
 
 .about-content{
@@ -342,9 +428,11 @@ ABOUT
 
 .about-content h3{
 
-    font-size:35px;
+    font-size:32px;
 
     margin-bottom:20px;
+
+    color:var(--gold-soft);
 
 }
 
@@ -352,19 +440,21 @@ ABOUT
 
     color:#cfcfcf;
 
-    line-height:34px;
+    line-height:32px;
 
-    font-size:18px;
+    font-size:17px;
+
+    margin-bottom:16px;
 
 }
 
 .stats{
 
-    margin-top:40px;
+    margin-top:35px;
 
     display:flex;
 
-    gap:30px;
+    gap:25px;
 
 }
 
@@ -374,11 +464,11 @@ ABOUT
 
     text-align:center;
 
-    padding:25px;
+    padding:22px;
 
-    background:rgba(255,255,255,.05);
+    background:var(--card);
 
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid var(--border);
 
     border-radius:20px;
 
@@ -388,49 +478,40 @@ ABOUT
 
 .stats div:hover{
 
-    transform:translateY(-12px);
+    transform:translateY(-10px);
 
-    box-shadow:0 0 25px rgba(0,229,255,.3);
+    box-shadow:0 0 25px rgba(242,183,5,.25);
 
 }
 
 .stats h1{
 
-    color:#00e5ff;
+    color:var(--gold);
 
-    font-size:40px;
+    font-size:36px;
 
 }
 
 .stats p{
 
-    margin-top:10px;
+    margin-top:8px;
+    font-size:15px;
 
 }
 
 /*==========================
-SONGS
+PERFORMANCES / YOUTUBE
 ==========================*/
 
-.songs{
+.performances{
 
     padding:100px 8%;
-
-}
-
-.songs h2{
-
+    background:var(--bg-alt);
     text-align:center;
 
-    font-size:45px;
-
-    margin-bottom:60px;
-
-    color:#00e5ff;
-
 }
 
-.song-container{
+.video-grid{
 
     display:grid;
 
@@ -438,53 +519,263 @@ SONGS
 
     gap:30px;
 
+    margin-bottom:50px;
+
 }
 
-.song-card{
+.video-card{
 
-    background:rgba(255,255,255,.05);
+    background:var(--card);
 
-    border-radius:25px;
+    border:1px solid var(--border);
 
-    padding:45px 30px;
+    border-radius:20px;
 
-    text-align:center;
-
-    border:1px solid rgba(255,255,255,.08);
+    padding:20px;
 
     transition:.4s;
 
 }
 
-.song-card:hover{
+.video-card:hover{
 
-    transform:translateY(-15px);
+    transform:translateY(-12px);
 
-    box-shadow:0 0 35px rgba(0,229,255,.35);
-
-}
-
-.song-card i{
-
-    font-size:55px;
-
-    color:#00e5ff;
-
-    margin-bottom:20px;
+    box-shadow:0 0 30px rgba(242,183,5,.25);
 
 }
 
-.song-card h3{
+.video-placeholder{
 
-    font-size:28px;
+    aspect-ratio:16/9;
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,rgba(242,183,5,.15),rgba(255,122,41,.1));
+
+    border-radius:14px;
 
     margin-bottom:15px;
 
 }
 
-.song-card p{
+.video-placeholder i{
 
-    color:#cfcfcf;
+    font-size:42px;
+
+    color:var(--gold);
+
+}
+
+.video-card h4{
+
+    font-size:19px;
+
+    margin-bottom:6px;
+
+}
+
+.video-card p{
+
+    color:var(--text-muted);
+
+    font-size:14px;
+
+}
+
+/*==========================
+MUSIC PLAYER
+==========================*/
+
+.music{
+
+    padding:100px 8%;
+    text-align:center;
+
+}
+
+.player-list{
+
+    max-width:750px;
+
+    margin:0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.player-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:18px 25px;
+
+    transition:.4s;
+
+}
+
+.player-card:hover{
+
+    box-shadow:0 0 25px rgba(242,183,5,.2);
+
+}
+
+.play-btn{
+
+    width:55px;
+
+    height:55px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:linear-gradient(135deg,var(--gold),var(--orange));
+
+    color:#000;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.play-btn:hover{
+
+    transform:scale(1.1);
+
+}
+
+.player-info{
+
+    flex:1;
+
+    text-align:left;
+
+}
+
+.player-info h4{
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:6px;
+
+    background:rgba(255,255,255,.1);
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    width:0%;
+
+    background:linear-gradient(90deg,var(--gold),var(--orange));
+
+    transition:.2s;
+
+}
+
+/*==========================
+INSTAGRAM
+==========================*/
+
+.instagram{
+
+    padding:100px 8%;
+    background:var(--bg-alt);
+    text-align:center;
+
+}
+
+.insta-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(6,1fr);
+
+    gap:18px;
+
+    max-width:900px;
+
+    margin:0 auto 40px;
+
+}
+
+.insta-tile{
+
+    aspect-ratio:1/1;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    background:linear-gradient(135deg,rgba(242,183,5,.18),rgba(255,122,41,.12));
+
+    border:1px solid var(--border);
+
+    color:var(--gold);
+
+    font-size:26px;
+
+    transition:.4s;
+
+}
+
+.insta-tile:hover{
+
+    transform:translateY(-8px) scale(1.05);
+
+    box-shadow:0 0 25px rgba(242,183,5,.35);
 
 }
 
@@ -495,18 +786,7 @@ GALLERY
 .gallery{
 
     padding:100px 8%;
-
-}
-
-.gallery h2{
-
     text-align:center;
-
-    font-size:45px;
-
-    color:#00e5ff;
-
-    margin-bottom:60px;
 
 }
 
@@ -520,15 +800,27 @@ GALLERY
 
 }
 
-.gallery-box img{
+.gallery-placeholder{
 
-    width:100%;
-
-    height:260px;
-
-    object-fit:cover;
+    height:230px;
 
     border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:linear-gradient(135deg,rgba(242,183,5,.15),rgba(255,122,41,.1));
+
+    border:1px solid var(--border);
+
+    color:var(--gold);
 
     transition:.5s;
 
@@ -536,80 +828,180 @@ GALLERY
 
 }
 
-.gallery-box img:hover{
+.gallery-placeholder i{
+    font-size:38px;
+}
 
-    transform:scale(1.08);
+.gallery-placeholder span{
+    color:var(--text-muted);
+    font-size:14px;
+}
 
-    box-shadow:0 0 30px rgba(0,229,255,.4);
+.gallery-placeholder:hover{
 
-}/*==========================
-CONTACT
+    transform:scale(1.05);
+
+    box-shadow:0 0 30px rgba(242,183,5,.35);
+
+}
+
+/*==========================
+TESTIMONIALS
 ==========================*/
 
-.contact{
+.testimonials{
 
     padding:100px 8%;
+    background:var(--bg-alt);
 
 }
 
-.contact h2{
+.testimonial-grid{
 
-    text-align:center;
+    display:grid;
 
-    font-size:45px;
+    grid-template-columns:repeat(3,1fr);
 
-    color:#00e5ff;
-
-    margin-bottom:50px;
+    gap:30px;
 
 }
 
-.contact form{
+.testimonial-card{
 
-    max-width:700px;
+    background:var(--card);
 
-    margin:auto;
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:35px 28px;
+
+    transition:.4s;
 
 }
 
-.contact input,
-.contact textarea{
+.testimonial-card:hover{
 
-    width:100%;
+    transform:translateY(-10px);
 
-    padding:18px;
+    box-shadow:0 0 25px rgba(242,183,5,.2);
+
+}
+
+.testimonial-card i{
+
+    color:var(--gold);
+
+    font-size:26px;
+
+    margin-bottom:15px;
+
+}
+
+.testimonial-card p{
+
+    color:#dcdcdc;
+
+    line-height:26px;
+
+    font-size:15px;
 
     margin-bottom:20px;
 
-    border:none;
+}
+
+.testimonial-card h4{
+
+    font-size:18px;
+
+    color:var(--gold-soft);
+
+}
+
+.testimonial-card span{
+
+    color:var(--text-muted);
+
+    font-size:13px;
+
+}
+
+/*==========================
+BOOKING / CONTACT & SONG REQUEST
+==========================*/
+
+.book,
+.request{
+
+    padding:100px 8%;
+    text-align:center;
+
+}
+
+.request{
+    background:var(--bg-alt);
+}
+
+.booking-form,
+.request-form{
+
+    max-width:650px;
+
+    margin:auto;
+    text-align:left;
+
+}
+
+.hidden-field{
+    display:none;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea,
+.request-form input{
+
+    width:100%;
+
+    padding:16px 18px;
+
+    margin-bottom:18px;
 
     outline:none;
 
-    background:rgba(255,255,255,.05);
+    background:var(--card);
 
     color:#fff;
 
     border-radius:12px;
 
-    border:1px solid rgba(255,255,255,.1);
+    border:1px solid var(--border);
+
+    font-size:15px;
 
 }
 
-.contact textarea{
+.booking-form select option{
+    background:#111;
+    color:#fff;
+}
 
-    height:180px;
+.booking-form textarea{
+
+    height:150px;
 
     resize:none;
 
 }
 
-.contact button{
+.booking-form button,
+.request-form button{
 
     width:100%;
 
-    padding:18px;
+    padding:17px;
 
-    background:#00e5ff;
+    background:linear-gradient(135deg,var(--gold),var(--orange));
 
     color:#000;
 
@@ -617,7 +1009,7 @@ CONTACT
 
     border-radius:50px;
 
-    font-size:18px;
+    font-size:17px;
 
     font-weight:700;
 
@@ -627,11 +1019,25 @@ CONTACT
 
 }
 
-.contact button:hover{
+.booking-form button:hover,
+.request-form button:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 
-    box-shadow:0 0 25px #00e5ff;
+    box-shadow:0 0 25px rgba(242,183,5,.45);
+
+}
+
+.form-status{
+
+    text-align:center;
+
+    margin-top:15px;
+
+    color:var(--gold-soft);
+
+    font-size:15px;
+    min-height:20px;
 
 }
 
@@ -641,29 +1047,152 @@ FOOTER
 
 footer{
 
-    padding:40px;
+    padding:70px 8% 30px;
 
-    text-align:center;
+    background:#050508;
 
-    background:#070b1a;
-
-    border-top:1px solid rgba(255,255,255,.08);
+    border-top:1px solid var(--border);
 
 }
 
-footer h3{
+.footer-box{
 
-    color:#00e5ff;
+    display:grid;
 
-    font-size:28px;
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:40px;
+
+    max-width:1100px;
+
+    margin:0 auto 40px;
+
+}
+
+.footer-col h3{
+
+    color:var(--gold);
+
+    font-size:26px;
+
+    margin-bottom:14px;
+
+}
+
+.footer-col h4{
+
+    color:var(--gold-soft);
+
+    font-size:18px;
+
+    margin-bottom:16px;
+
+}
+
+.footer-col p{
+
+    color:var(--text-muted);
+
+    line-height:24px;
+
+    margin-bottom:10px;
+
+    font-size:14px;
+
+}
+
+.footer-col a{
+
+    display:block;
+
+    color:#ddd;
+
+    text-decoration:none;
 
     margin-bottom:12px;
 
+    transition:.3s;
+
+    font-size:14px;
+
 }
 
-footer p{
+.footer-col a:hover{
 
-    color:#cfcfcf;
+    color:var(--gold);
+
+}
+
+.footer-col .social{
+    margin-top:15px;
+}
+
+.footer-col .social a{
+    display:inline-flex;
+    margin-bottom:0;
+}
+
+.copyright{
+
+    text-align:center;
+
+    color:var(--text-muted);
+
+    font-size:14px;
+
+    padding-top:25px;
+
+    border-top:1px solid var(--border);
+
+}
+
+/*==========================
+WHATSAPP FLOAT BUTTON
+==========================*/
+
+.whatsapp-float{
+
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    width:60px;
+
+    height:60px;
+
+    background:var(--whatsapp);
+
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.4);
+
+    z-index:1000;
+
+    transition:.3s;
+
+}
+
+.whatsapp-float i{
+
+    font-size:32px;
+
+}
+
+.whatsapp-float:hover{
+
+    transform:scale(1.1);
+
+    box-shadow:0 0 25px var(--whatsapp);
 
 }
 
@@ -687,17 +1216,27 @@ width:100%;
 
 }
 
+.hero-text p{
+margin-left:auto;
+margin-right:auto;
+}
+
+.buttons,
+.social{
+justify-content:center;
+}
+
 .hero-image{
 
 width:100%;
 
-margin-bottom:50px;
+margin-bottom:20px;
 
 }
 
 .hero-image img{
 
-width:320px;
+width:300px;
 
 }
 
@@ -709,7 +1248,7 @@ flex-direction:column;
 
 .about-image{
 
-width:100%;
+width:70%;
 
 }
 
@@ -721,15 +1260,20 @@ text-align:center;
 
 }
 
+.about-content p{
+text-align:left;
+}
+
 .stats{
 
 flex-direction:column;
 
 }
 
-.song-container{
+.video-grid,
+.testimonial-grid{
 
-grid-template-columns:1fr;
+grid-template-columns:1fr 1fr;
 
 }
 
@@ -739,17 +1283,71 @@ grid-template-columns:repeat(2,1fr);
 
 }
 
-header{
+.insta-grid{
 
-padding:18px 5%;
+grid-template-columns:repeat(3,1fr);
+
+}
+
+.footer-box{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.footer-col .social{
+justify-content:center;
+}
+
+nav{
+
+position:fixed;
+
+top:78px;
+
+left:0;
+
+width:100%;
+
+background:rgba(5,5,10,.98);
+
+flex-direction:column;
+
+align-items:flex-start;
+
+padding:20px 8%;
+
+gap:10px;
+
+transform:translateY(-150%);
+
+transition:.4s;
+
+z-index:999;
+
+}
+
+nav.open{
+
+transform:translateY(0);
 
 }
 
 nav a{
 
-margin-left:15px;
+margin-left:0;
 
-font-size:15px;
+padding:10px 0;
+
+width:100%;
+
+}
+
+.nav-toggle{
+
+display:block;
 
 }
 
@@ -759,73 +1357,32 @@ font-size:15px;
 
 .hero-text h1{
 
-font-size:50px;
+font-size:44px;
 
 }
 
-.hero-text h2{
+.tagline{
 
-font-size:24px;
-
-}
-
-.about h2,
-.songs h2,
-.gallery h2,
-.contact h2{
-
-font-size:36px;
+font-size:20px;
 
 }
 
-.gallery-box{
+section h2{
+
+font-size:34px;
+
+}
+
+.video-grid,
+.testimonial-grid{
 
 grid-template-columns:1fr;
 
 }
 
-.buttons{
+.insta-grid{
 
-display:flex;
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-.btn,
-.btn2{
-
-margin-right:0;
-
-}
-
-.social{
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-}
-
-header{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-nav{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
+grid-template-columns:repeat(3,1fr);
 
 }
 
@@ -835,22 +1392,26 @@ justify-content:center;
 
 .hero{
 
-padding:120px 20px;
+padding:120px 20px 60px;
 
 }
 
 .about,
-.songs,
+.performances,
+.music,
+.instagram,
 .gallery,
-.contact{
+.testimonials,
+.book,
+.request{
 
-padding:80px 20px;
+padding:70px 20px;
 
 }
 
 .hero-image img{
 
-width:250px;
+width:230px;
 
 }
 
@@ -860,170 +1421,73 @@ font-size:22px;
 
 }
 
-.hero-text h1{
-
-font-size:40px;
-
-}
-
-.hero-text p{
-
-font-size:16px;
-
-line-height:28px;
-
-}
-
-.song-card{
-
-padding:30px 20px;
-
-}
-
-footer{
-
-padding:30px 15px;
-
-}
-
-}
-.x-feed{
-    padding:80px 10%;
-    text-align:center;
-    background:#0f172a;
-}
-
-.x-feed h2{
-    color:#fff;
-    font-size:38px;
-    margin-bottom:30px;
-}
-
-.x-box{
-    max-width:700px;
-    margin:auto;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 0 25px rgba(0,255,255,.25);
-}
-/* ================= SOCIAL FEED ================= */
-
-.social-feed{
-width:100%;
-padding:80px 8%;
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:35px;
-background:#0d1117;
-}
-
-.social-card{
-
-background:#161b22;
-border:2px solid rgba(0,255,255,.25);
-border-radius:25px;
-padding:30px;
-text-align:center;
-box-shadow:0 0 25px rgba(0,255,255,.15);
-transition:.4s;
-
-}
-
-.social-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 0 35px cyan;
-
-}
-
-.social-card h2{
-
-color:#00ffff;
-
-margin-bottom:25px;
-
-font-size:30px;
-
-}
-
-.profile-pic{
-
-width:150px;
-
-height:150px;
-
-border-radius:50%;
-
-border:5px solid cyan;
-
-object-fit:cover;
-
-margin:15px auto;
-
-display:block;
-
-}
-
-.social-card h3{
-
-color:#fff;
-
-font-size:28px;
-
-margin-top:15px;
-
-}
-
-.social-card p{
-
-color:#bdbdbd;
-
-margin:12px 0 25px;
-
-}
-
-.social-card .btn{
-
-display:inline-block;
-
-padding:12px 30px;
-
-background:#00ffff;
-
-color:#000;
-
-border-radius:40px;
-
-font-weight:bold;
-
-text-decoration:none;
-
-transition:.3s;
-
-}
-
-.social-card .btn:hover{
-
-background:#fff;
-
-}
-
-.twitter-timeline{
-
-border-radius:15px;
-
-overflow:hidden;
-
-}
-
-@media(max-width:900px){
-
-.social-feed{
+.gallery-box{
 
 grid-template-columns:1fr;
 
 }
+
+.insta-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.player-card{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.player-info{
+text-align:center;
+}
+
+footer{
+
+padding:50px 20px 25px;
+
+}
+
+.whatsapp-float{
+
+width:52px;
+
+height:52px;
+
+bottom:18px;
+
+right:18px;
+
+}
+
+.whatsapp-float i{
+
+font-size:28px;
+
+}
+
+}
+
+/* Fade-in on scroll (applied via JS observer) */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(60px);
+
+transition:opacity .8s ease, transform .8s ease;
+
+}
+
+.reveal.visible{
+
+opacity:1;
+
+transform:translateY(0);
 
 }
 
